@@ -2260,6 +2260,22 @@ Component: timeline
 /* 
     Page: register and login
 */
+
+.register {
+  background: url(../img/blur-background09.jpg) repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.login {
+  background: url(../img/blur-background09.jpg) repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 .form-box {
   width: 360px;
   margin: 90px auto 0 auto;
@@ -2277,7 +2293,6 @@ Component: timeline
   border-top-right-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  background: #3d9970;
   box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.2);
   padding: 20px 10px;
   text-align: center;
