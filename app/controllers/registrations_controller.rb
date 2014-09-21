@@ -5,6 +5,7 @@ class RegistrationsController < ApplicationController
   # GET /registrations.json
   def index
     @registrations = Registration.all
+    @applicationTitle = "Application Validated"
   end
 
   # GET /registrations/1
@@ -109,6 +110,7 @@ class RegistrationsController < ApplicationController
 
 @activity_id = @response["meta"]["activity_id"]
 
+@applicationTitle = "Application #{@activity_id} Submitted"
     respond_to do |format|
         format.html { flash[:notice] = "Registration was successfully created.  The registration id is: #{@activity_id}"
                        render :index

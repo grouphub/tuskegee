@@ -5,7 +5,7 @@
   <script src="js/betterdoctor.js" type="text/javascript"></script>
 </head>
 <body>
-<h3>BetterDoctor - Doctor Search Results</h3>
+<h3>BetterDoctor</h3>
 <div id="content-placeholder"></div>
 <script id="docs-template" type="text/x-handlebars-template">
     <table>
@@ -13,6 +13,9 @@
             <th>Name</th>
             <th>Title</th>
             <th>Picture</th>
+            <th>Location</th>
+            <th>Rating</th>
+
         </thead>
         <tbody>
         {{#data}}
@@ -20,6 +23,9 @@
             <td><a href="{{attribution_url}}" target="_new">{{profile.first_name}} {{profile.last_name}}</a></td>
             <td>{{profile.title}}</td>
             <td><img src="{{profile.image_url}}"></img></td>
+            <td>{{practices.visit_address}}</td>
+            <td>{{ratings.rating}}</td>
+
         </tr>
         {{/data}}
         </tbody>
