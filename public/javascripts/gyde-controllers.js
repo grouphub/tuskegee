@@ -39,6 +39,12 @@ gydeControllers.controller('PrioritiesController', ['$scope',
   }
 ]);
 
+gydeControllers.controller('NavigationController', ['$scope',
+  function($scope) {
+    $scope.user = $scope.$parent.user;
+  }
+]);
+
 gydeControllers.controller('ResultsController', ['$scope', '$http', 'UserService',
   function($scope, $http, UserService) {
     $scope.user = $scope.$parent.user;

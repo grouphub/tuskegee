@@ -11,7 +11,7 @@ gydeApp.config(['$routeProvider', '$locationProvider',
 
     $routeProvider.
       when('/', {
-        templateUrl: '/javascripts/partials/home.html',
+        templateUrl: '/javascripts/partials/navigation.html',
         controller: 'HomeController'
       }).
       when('/priorities', {
@@ -25,6 +25,10 @@ gydeApp.config(['$routeProvider', '$locationProvider',
       when('/details', {
         templateUrl: '/javascripts/partials/details.html',
         controller: 'DetailsController'
+      }).
+      when('/navigation', {
+        templateUrl: '/javascripts/partials/navigation.html',
+        controller: 'NavigationController'
       }).
      //when('/provider', {
      //   templateUrl: '/javascripts/partials/provider.html',

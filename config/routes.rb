@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :registrations
+  #devise_for :users
+  
 
   root :to => "home#index"
   
@@ -7,7 +8,9 @@ Rails.application.routes.draw do
 
   resources :roles
 
-  resources :users
+  resources :registrations
+
+  #resources :users
 
   resources :applicants
 

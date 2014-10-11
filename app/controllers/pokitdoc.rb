@@ -1,4 +1,5 @@
 require 'pokitdok'
+before_action :authenticate_user!
 pd = PokitDok::PokitDok.new("RKH2S5iecrOcrGroqrx9", "1eEx7fl95Deqz0Y9w3StPfMT8oXoRS8XR4oU2xLH")
 
 # Retrieve provider information by NPI
