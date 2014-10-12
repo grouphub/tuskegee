@@ -7,6 +7,8 @@ class RegistrationsController < ApplicationController
   def index
     @registrations = Registration.all
     @applicationTitle = "Application Validated"
+
+    render layout: false
   end
 
   # GET /registrations/1
