@@ -41,7 +41,7 @@ gydeApp.config(['$routeProvider', '$locationProvider',
       }).
       otherwise({
         redirectTo: '/'
-      })
+      });
   }
 ]);
 

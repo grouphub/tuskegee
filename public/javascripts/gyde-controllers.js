@@ -59,3 +59,12 @@ gydeControllers.controller('ResultsController', ['$scope', '$http', 'UserService
   }
 ]);
 
+gydeControllers.controller('MembershipsController', ['$scope', '$http',
+  function($scope, $http) {
+    var url = '/memberships.json?group_id=1';
+    $http.get(url).then(function(response) {
+      $scope.memberships = response.data;
+    });
+  }
+]);
+
