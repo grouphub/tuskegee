@@ -1,11 +1,14 @@
 class RegistrationsController < ApplicationController
-  before_action :set_registration, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+
+  # before_action :set_registration, only: [:show, :edit, :update, :destroy]
+  # before_action :authenticate_user!
   # GET /registrations
   # GET /registrations.json
   def index
     @registrations = Registration.all
     @applicationTitle = "Application Validated"
+
+    render layout: false
   end
 
   # GET /registrations/1
@@ -25,28 +28,28 @@ class RegistrationsController < ApplicationController
   # POST /registrations
   # POST /registrations.json
   def create
-    
+
     pd = PokitDok::PokitDok.new("RKH2S5iecrOcrGroqrx9", "1eEx7fl95Deqz0Y9w3StPfMT8oXoRS8XR4oU2xLH")
 
     @enrollment = {
-        action: "Change", 
-        dependents: [], 
-        master_policy_number: "ABCD012354", 
+        action: "Change",
+        dependents: [],
+        master_policy_number: "ABCD012354",
         payer: {
             tax_id: "654456654"
-        }, 
-        purpose: "Original", 
-        reference_number: "12456", 
+        },
+        purpose: "Original",
+        reference_number: "12456",
         sponsor: {
             tax_id: "999888777"
-        }, 
+        },
         subscriber: {
             address: {
-                city: "CAMP HILL", 
-                county: "CUMBERLAND", 
-                line: "100 MARKET ST", 
-                line2: "APT 3G", 
-                postal_code: "17011", 
+                city: "CAMP HILL",
+                county: "CUMBERLAND",
+                line: "100 MARKET ST",
+                line2: "APT 3G",
+                postal_code: "17011",
                 state: "PA"
             }, 
             benefit_status: "Active", 
@@ -106,16 +109,18 @@ class RegistrationsController < ApplicationController
         trading_partner_id: "MOCKPAYER"
     }
 
-@response = pd.enrollment @enrollment
+    @response = pd.enrollment @enrollment
 
-@activity_id = @response["meta"]["activity_id"]
+    @activity_id = @response["meta"]["activity_id"]
 
-@applicationTitle = "Application #{@activity_id} Submitted"
+    @applicationTitle = "Application #{@activity_id} Submitted"
+
     respond_to do |format|
-        format.html { flash[:notice] = "Registration was successfully created.  The registration id is: #{@activity_id}"
-                       render :index
-                        }
-        format.json { render :show, status: :created, location: @registration }
+      format.html {
+        flash[:notice] = "Registration was successfully created.  The registration id is: #{@activity_id}"
+        render :index, layout: false
+      }
+      format.json { render :show, status: :created, location: @registration }
     end
   end
 
